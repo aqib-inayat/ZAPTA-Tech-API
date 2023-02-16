@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "1bc999c5-b7f0-49f6-9720-5396bc80cfe8",
+		"name": "Collection for ZAPTA by AQIB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16199431"
+	},
+	"item": [
+		{
+			"name": "Get Weather Zapta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code Test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var res=JSON.parse(responseBody);\r",
+							"\r",
+							"        pm.test(\"Longitude Latitude Assertion\", function () {\r",
+							"            pm.expect(res.coord.lon).to.equal(-0.13);\r",
+							"            pm.expect(res.coord.lat).to.equal(51.51);\r",
+							"\r",
+							"\r",
+							"        });\r",
+							"\r",
+							"       \r",
+							"\r",
+							"        pm.test(\"Test Case No.1 : For Country \", function () {\r",
+							"            pm.expect(res.sys.country).to.equal(\"GB\");\r",
+							"\r",
+							"\r",
+							"        });\r",
+							"\r",
+							"        pm.test(\"Test Case No 2 : For City Name\", function () {\r",
+							"            pm.expect(res.name).to.equal(\"London\");\r",
+							"\r",
+							"\r",
+							"        });\r",
+							"\r",
+							"        pm.test(\"Test Case No. 3 : For Minimum Temprature\", function () {\r",
+							"            pm.expect(res.main.temp_min).to.equal(279.15);\r",
+							"\r",
+							"\r",
+							"        });\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d28\n9e10d714a6e88b30761fae22.",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6907d28\n9e10d714a6e88b30761fae22."
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
